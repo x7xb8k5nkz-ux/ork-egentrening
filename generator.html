@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promptgenerator - Egentrening som gir utvikling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="site-header" aria-label="Hovednavigasjon">
+    <a class="brand" href="index.html">Egentrening</a>
+    <nav>
+      <a href="kroppsoving.html">Kroppsøving</a>
+      <a href="breddeidrett.html">Breddeidrett</a>
+      <a href="begreper.html">Begreper</a>
+      <a href="#generator">Generator</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="generator-hero compact-hero" aria-labelledby="generator-title">
+      <div class="generator-hero-copy">
+        <p class="eyebrow">Tilbakemeldingsverktøy</p>
+        <h1 id="generator-title">Lag en god bestilling til Copilot.</h1>
+        <p class="lead">Velg vei, nivå og fokus. Lim inn teksten din, så får du en prompt som ber om konkret, faglig og utviklingsorientert tilbakemelding.</p>
+      </div>
+      <figure class="generator-spiral seamless-spiral" aria-hidden="true">
+        <img src="assets/images/fibonacci-spiral.png" alt="">
+      </figure>
+    </section>
+
+    <section class="copilot-guide" aria-label="Hva er Copilot og hva gjør du med prompten">
+      <div class="copilot-guide-inner">
+        <div class="copilot-what">
+          <p class="eyebrow">Hva er Copilot?</p>
+          <h2 style="font-size:clamp(1.2rem,2.5vw,1.7rem);margin-bottom:0.75rem">Microsoft Copilot er en KI-assistent du har tilgang til via skolens Microsoft 365.</h2>
+          <p>Du skriver ikke prompten selv — Generatoren lager den for deg. Du kopierer og limer bare inn.</p>
+        </div>
+        <div class="copilot-how">
+          <p class="copilot-how-title">Slik gjør du det</p>
+          <ol class="copilot-how-steps">
+            <li><span>1</span> Fyll inn feltene under og trykk <strong>Generer prompt</strong></li>
+            <li><span>2</span> Trykk <strong>Kopier</strong> øverst i resultatfeltet</li>
+            <li><span>3</span> Åpne Copilot (lenke under), lim inn og trykk Enter</li>
+          </ol>
+          <a class="button primary" href="https://copilot.microsoft.com" target="_blank" rel="noopener noreferrer">Åpne Copilot →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="generator-shell" id="generator" aria-labelledby="generator-form-title">
+      <div class="section-heading">
+        <p class="eyebrow">Arbeidsmodus</p>
+        <h2 id="generator-form-title">Følg samme veiskille som på siden.</h2>
+        <p>Når du velger Kroppsøving eller Breddeidrett, vises bare valg som hører til den veien.</p>
+      </div>
+
+      <form class="prompt-form">
+        <fieldset>
+          <legend>1. Velg vei</legend>
+          <div class="choice-row track-row">
+            <label><input type="radio" name="track" value="kroppsoving" checked><span><strong>Kroppsøving</strong>Helse, deltakelse og refleksjon</span></label>
+            <label><input type="radio" name="track" value="breddeidrett"><span><strong>Breddeidrett</strong>Testing, prestasjon og progresjon</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-track-section="kroppsoving">
+          <legend>2. Velg oppgave</legend>
+          <div class="period-choice-grid">
+            <label><input type="radio" name="peTask" value="Kroppsøving Vg1" checked><span><strong>Vg1</strong>Grunnlag, trygghet og deltakelse</span></label>
+            <label><input type="radio" name="peTask" value="Kroppsøving Vg2"><span><strong>Vg2</strong>Helse, kapasitet og fellesskap</span></label>
+            <label><input type="radio" name="peTask" value="Kroppsøving Vg3 - prøverommet"><span><strong>Vg3 oppgave 1</strong>Prøve ut, utfordre seg selv og lære</span></label>
+            <label><input type="radio" name="peTask" value="Kroppsøving Vg3 - sluttoppgave"><span><strong>Vg3 oppgave 2</strong>Selvstendig sluttoppgave</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset data-track-section="breddeidrett" hidden>
+          <legend>2. Velg periodesteg</legend>
+          <div class="period-choice-grid">
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 1 - periode 1" checked><span><strong>Steg 1</strong>Bredde 1 P1: mål, test og logg</span></label>
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 1 - periode 2"><span><strong>Steg 2</strong>Bredde 1 P2: enkel progresjon</span></label>
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 2 - periode 1"><span><strong>Steg 3</strong>Bredde 2 P1: analyse</span></label>
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 2 - periode 2"><span><strong>Steg 4</strong>Bredde 2 P2: metode og justering</span></label>
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 3 - periode 1"><span><strong>Steg 5</strong>Bredde 3 P1: dokumentasjon</span></label>
+            <label><input type="radio" name="breddeStep" value="Breddeidrett 3 - periode 2"><span><strong>Steg 6</strong>Bredde 3 P2: optimalisering</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field-label" for="focus">3. Velg fokusområde</label>
+        <select id="focus" name="focus">
+          <option value="Helhetlig vurdering">Helhetlig vurdering</option>
+        </select>
+
+        <label class="field-label" for="start-reflection">4. Lim inn startrefleksjonen din</label>
+        <textarea id="start-reflection" name="start-reflection" rows="6" placeholder="Lim inn det du skrev i startrefleksjonen — hva var utgangspunktet ditt, og hva planla du å gjøre?"></textarea>
+
+        <label class="field-label" for="student-text">5. Lim inn øktplan, logg og sluttrefleksjon</label>
+        <textarea id="student-text" name="student-text" rows="14" placeholder="Lim inn mål, øktplaner, treningslogg, testresultater og sluttrefleksjonen din her."></textarea>
+
+        <button class="button primary" type="button" id="generate-prompt">Generer prompt</button>
+      </form>
+
+      <aside class="prompt-output-panel" aria-labelledby="prompt-output-title">
+        <div class="output-header">
+          <div>
+            <p class="eyebrow">Resultat</p>
+            <h2 id="prompt-output-title">Ferdig prompt</h2>
+          </div>
+          <button class="button secondary" type="button" id="copy-prompt">Kopier</button>
+        </div>
+        <textarea id="prompt-output" rows="22" readonly>Velg vei og oppgave. Lim inn startrefleksjonen din og arbeidet ditt, trykk «Generer prompt».</textarea>
+        <p class="output-note">Tilbakemeldingen fra Copilot er veiledende. Lærer vurderer samlet kompetanse.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="scripts/generator.js"></script>
+  <footer class="site-footer">
+    <div>
+      <strong>Et læringsverktøy fra Løype Labs AS</strong>
+      <p>© 2026 Løype Labs AS. Innhold, design, struktur og promptmaler er beskyttet. Alle rettigheter forbeholdt.</p>
+    </div>
+    <nav aria-label="Bunnlenker">
+      <a href="juridisk.html">Rettigheter og bruk</a>
+      <a href="juridisk.html#kontakt">Kontakt</a>
+    </nav>
+  </footer>
+</body>
+</html>
