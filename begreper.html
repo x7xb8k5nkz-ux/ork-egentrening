@@ -3,119 +3,309 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Begreper - Egentrening som gir utvikling</title>
+  <title>Begreper — Egentrening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .dict-ex {
+      font-size: 12px; line-height: 1.55; color: var(--ink-muted);
+      border-left: 2px solid var(--line-strong); padding-left: 10px;
+      margin: 2px 0 0; max-width: none; font-style: italic;
+    }
+    .dict-count {
+      font: 400 11px var(--mono); letter-spacing: .15em;
+      color: var(--ink-muted); margin-top: 12px; margin-bottom: 0; max-width: none;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header" aria-label="Hovednavigasjon">
-    <a class="brand" href="index.html">Egentrening</a>
-    <nav>
-      <a href="kroppsoving.html">Kroppsøving</a>
-      <a href="breddeidrett.html">Breddeidrett</a>
-      <a href="generator.html">Generator</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="path-hero" aria-labelledby="concept-title">
-      <div>
-        <p class="eyebrow">Begrepsbank</p>
-        <h1 id="concept-title">Teori du kan bruke når du planlegger, trener og logger.</h1>
-        <p class="lead">Bruk begrepene aktivt i mål, øktplan, logg og refleksjon. Det er lettere å forstå egen utvikling når du har presise ord for det du gjør.</p>
-      </div>
-      <div class="path-summary">
-        <span>Tips</span>
-        <strong>Ikke pynt teksten med begreper.</strong>
-        <p>Bruk dem der de forklarer et valg, en opplevelse, en justering eller en sammenheng.</p>
-      </div>
-    </section>
-
-    <section class="concepts concept-page" aria-labelledby="mini-title">
-      <div class="section-heading">
-        <p class="eyebrow">Miniordbok</p>
-        <h2 id="mini-title">Begreper for egentrening</h2>
-      </div>
-      <div class="concept-groups">
-        <section class="concept-group">
-          <h3>Mål og planlegging</h3>
-          <dl>
-            <div><dt>Mål</dt><dd>Det du ønsker å utvikle eller oppnå gjennom trening.</dd></div>
-            <div><dt>SMARTØF</dt><dd>En modell som gjør målet spesifikt, målbart, attraktivt, realistisk, tidsbestemt, økologisk og positivt formulert.</dd></div>
-            <div><dt>Øktplan</dt><dd>Planen for en konkret treningsøkt. Den skal skrives før økta starter.</dd></div>
-            <div><dt>Periodeplan</dt><dd>Plan for flere økter over tid, med progresjon og sammenheng.</dd></div>
-            <div><dt>Tilpasning</dt><dd>Endringer som gjør trening mulig og meningsfull ut fra egne forutsetninger.</dd></div>
-          </dl>
-        </section>
-
-        <section class="concept-group">
-          <h3>Gjennomføring og logg</h3>
-          <dl>
-            <div><dt>Fokuspunkt</dt><dd>Det viktigste du skal være oppmerksom på i økta.</dd></div>
-            <div><dt>Treningslogg</dt><dd>Notater om hva du gjorde, hvordan det opplevdes og hva du lærte.</dd></div>
-            <div><dt>Refleksjon</dt><dd>Når du forklarer hvorfor noe fungerte, ikke bare beskriver hva som skjedde.</dd></div>
-            <div><dt>Justering</dt><dd>Endring av mål, øvelse, belastning eller plan etter erfaring.</dd></div>
-            <div><dt>Medvirkning</dt><dd>At du bidrar aktivt til egen og andres læring.</dd></div>
-          </dl>
-        </section>
-
-        <section class="concept-group">
-          <h3>Treningslære</h3>
-          <dl>
-            <div><dt>Belastning</dt><dd>Den samlede påvirkningen fra trening, styrt av intensitet, varighet, hyppighet og pauser.</dd></div>
-            <div><dt>Intensitet</dt><dd>Hvor hardt du trener.</dd></div>
-            <div><dt>Progresjon</dt><dd>Gradvis utvikling i belastning, kvalitet, kompleksitet eller selvstendighet.</dd></div>
-            <div><dt>Variasjon</dt><dd>Bevisst veksling i øvelser, metoder, intensitet eller miljø.</dd></div>
-            <div><dt>Restitusjon</dt><dd>Tiden og tiltakene kroppen trenger for å hente seg inn etter belastning.</dd></div>
-          </dl>
-        </section>
-
-        <section class="concept-group">
-          <h3>Testing og analyse</h3>
-          <dl>
-            <div><dt>Test</dt><dd>En måling eller observasjon som gir informasjon om nivå, utvikling eller kvalitet.</dd></div>
-            <div><dt>Re-test</dt><dd>Samme test gjennomføres på nytt for å undersøke utvikling.</dd></div>
-            <div><dt>Standardisering</dt><dd>At testen gjennomføres likt hver gang slik at sammenligning blir mer rettferdig.</dd></div>
-            <div><dt>Arbeidskravsanalyse</dt><dd>Vurdering av hva aktiviteten krever fysisk, teknisk, psykisk, sosialt og taktisk.</dd></div>
-            <div><dt>Kapasitetsanalyse</dt><dd>Vurdering av egne styrker, utfordringer og behov opp mot arbeidskravene.</dd></div>
-          </dl>
-        </section>
-
-        <section class="concept-group">
-          <h3>Helse og livsstil</h3>
-          <dl>
-            <div><dt>Fysisk helse</dt><dd>Hvordan kroppen fungerer og påvirkes av aktivitet, hvile, belastning og vaner.</dd></div>
-            <div><dt>Psykososial helse</dt><dd>Hvordan mestring, motivasjon, trygghet, relasjoner og fellesskap påvirker trivsel og læring.</dd></div>
-            <div><dt>Helsefremmende livsstil</dt><dd>Vaner som kan støtte helse og aktivitet over tid.</dd></div>
-            <div><dt>Mestring</dt><dd>Opplevelsen av å få til noe, eller å tåle utfordring og utvikle seg.</dd></div>
-            <div><dt>Motivasjon</dt><dd>Det som gjør at du starter, holder ut og ønsker å fortsette.</dd></div>
-          </dl>
-        </section>
-
-        <section class="concept-group">
-          <h3>Basistrening og ferdigheter</h3>
-          <dl>
-            <div><dt>Basistrening</dt><dd>Trening av grunnleggende fysiske, koordinative, psykiske og sosiale egenskaper.</dd></div>
-            <div><dt>Utholdenhet</dt><dd>Evnen til å arbeide over tid.</dd></div>
-            <div><dt>Styrke</dt><dd>Evnen til å utvikle kraft.</dd></div>
-            <div><dt>Bevegelighet</dt><dd>Evnen til å bevege ledd og muskler gjennom bevegelsesutslag.</dd></div>
-            <div><dt>Koordinasjon</dt><dd>Evnen til å samordne bevegelser med hverandre og med omgivelsene.</dd></div>
-          </dl>
-        </section>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div>
-      <strong>Et læringsverktøy fra Løype Labs AS</strong>
-      <p>© 2026 Løype Labs AS. Innhold, design, struktur og promptmaler er beskyttet. Alle rettigheter forbeholdt.</p>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Egentrening</a>
+      <ul class="nav-links">
+        <li><a href="kroppsoving.html">Kroppsøving</a></li>
+        <li><a href="breddeidrett.html">Breddeidrett</a></li>
+        <li><a href="generator.html">Generator</a></li>
+      </ul>
+      <a class="nav-cta" href="#ordbok">Til ordbok</a>
     </div>
-    <nav aria-label="Bunnlenker">
-      <a href="juridisk.html">Rettigheter og bruk</a>
-      <a href="juridisk.html#kontakt">Kontakt</a>
-    </nav>
+  </nav>
+
+  <section class="path-hero">
+    <div class="path-hero-copy fade-up">
+      <p class="eyebrow">Begrepsbank</p>
+      <h1>Teori du kan bruke når du planlegger, trener og logger.</h1>
+      <p>Bruk begrepene aktivt i mål, øktplan, logg og refleksjon. Det er lettere å forstå og forklare egen utvikling når du har presise ord for det du gjør.</p>
+      <a class="btn btn-primary" href="#ordbok" style="margin-top:24px">Se alle begreper</a>
+    </div>
+    <div class="path-summary fade-up">
+      <span class="label">Tips</span>
+      <strong>Ikke pynt teksten med begreper.</strong>
+      <p>Bruk dem der de forklarer et valg, en opplevelse, en justering eller en sammenheng. Et begrep du forstår og bruker riktig er verdt ti du strødde inn for å imponere.</p>
+    </div>
+  </section>
+
+  <section class="section" id="ordbok">
+    <div class="wrap">
+      <div class="section-header fade-up">
+        <p class="eyebrow">Miniordbok</p>
+        <h2>30 begreper for egentrening</h2>
+        <p>Filtrer etter kategori, eller bla gjennom alle. Klikk på et begrep for å lese mer.</p>
+      </div>
+
+      <div class="dict-filter fade-up" role="group" aria-label="Filtrer begreper">
+        <button class="dict-chip is-active" data-cat="alle">Alle</button>
+        <button class="dict-chip" data-cat="mal">Mål og plan</button>
+        <button class="dict-chip" data-cat="logg">Logg og refleksjon</button>
+        <button class="dict-chip" data-cat="trening">Treningslære</button>
+        <button class="dict-chip" data-cat="testing">Testing</button>
+        <button class="dict-chip" data-cat="helse">Helse</button>
+        <button class="dict-chip" data-cat="basis">Basistrening</button>
+      </div>
+
+      <p class="dict-count fade-up" id="dict-count">Viser 30 begreper</p>
+
+      <div class="dict-list fade-up" id="dict-list">
+
+        <!-- MÅL OG PLAN -->
+
+        <div class="dict-entry" data-cat="mal">
+          <div class="dict-term">Mål <span class="dict-cat">Mål og plan</span></div>
+          <p class="dict-def">Det du vil oppnå eller utvikle gjennom treningen. Et godt mål gir deg noe konkret å styre mot og gjør det lettere å vite om du er på rett vei.</p>
+          <p class="dict-ex">Som en GPS: uten destinasjon kjører du bare rundt.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="mal">
+          <div class="dict-term">SMARTØF <span class="dict-cat">Mål og plan</span></div>
+          <p class="dict-def">En huskeliste for å lage mål som faktisk funker. Spesifikt (hva?), Målbart (kan du se fremgang?), Attraktivt (vil du det?), Realistisk (mulig å nå?), Tidsbestemt (når?), Økologisk (passer inn i livet ditt?), Positivt formulert (mot noe, ikke fra noe).</p>
+          <p class="dict-ex">«Jeg vil bli bedre» er ikke et mål. «Jeg vil løpe 3 km uten stopp innen fire uker» er et SMARTØF-mål.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="mal">
+          <div class="dict-term">Øktplan <span class="dict-cat">Mål og plan</span></div>
+          <p class="dict-def">Planen du skriver FØR du trener. Den sier hva du skal gjøre, hvorfor og hvordan — og ett fokuspunkt du skal holde på i løpet av økta.</p>
+          <p class="dict-ex">Som å legge en spillplan i FIFA før kampen, ikke improvisere fra kick-off.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="mal">
+          <div class="dict-term">Periodeplan <span class="dict-cat">Mål og plan</span></div>
+          <p class="dict-def">En oversikt over flere økter over tid. Viser hvordan treningen bygger seg opp uke for uke, med progresjon og sammenheng mellom øktene.</p>
+          <p class="dict-ex">Som en sesongplan i en idrettsklubb — men tilpasset deg alene.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="mal">
+          <div class="dict-term">Tilpasning <span class="dict-cat">Mål og plan</span></div>
+          <p class="dict-def">Å endre treningen slik at den passer deg og din situasjon akkurat nå. Tilpasning er ikke svakhet — det er klokt treningsarbeid. Kropp, dagsform og forutsetninger varierer.</p>
+          <p class="dict-ex">Har du vondt i kneet? Sykkel i stedet for sprint. Målet er fortsatt aktivitet.</p>
+        </div>
+
+        <!-- LOGG OG REFLEKSJON -->
+
+        <div class="dict-entry" data-cat="logg">
+          <div class="dict-term">Fokuspunkt <span class="dict-cat">Logg og refleksjon</span></div>
+          <p class="dict-def">Det ene du bestemmer deg for å være ekstra oppmerksom på i løpet av økta. Et klart fokuspunkt gjør deg mer bevisst og gir mer læring enn å bare «gjøre noe».</p>
+          <p class="dict-ex">Ikke «alt» — det. «I dag skal jeg holde skuldrene nede gjennom hele settet.»</p>
+        </div>
+
+        <div class="dict-entry" data-cat="logg">
+          <div class="dict-term">Treningslogg <span class="dict-cat">Logg og refleksjon</span></div>
+          <p class="dict-def">Notatene du skriver etter treningen. En god logg er personlig og konkret — den sier ikke bare hva du gjorde, men hvordan det opplevdes og hva du lærte.</p>
+          <p class="dict-ex">«Satte ny rekord, men motivasjonen var laber» er bedre logg enn «30 min, puls 145».</p>
+        </div>
+
+        <div class="dict-entry" data-cat="logg">
+          <div class="dict-term">Refleksjon <span class="dict-cat">Logg og refleksjon</span></div>
+          <p class="dict-def">Å forklare <em>hvorfor</em> noe skjedde, ikke bare beskrive hva som skjedde. Refleksjon er det som skiller en lærende logg fra en treningsdagbok.</p>
+          <p class="dict-ex">«Jeg var sliten» er en beskrivelse. «Jeg var sliten fordi jeg sov dårlig og hadde gym allerede i 1. time» er refleksjon.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="logg">
+          <div class="dict-term">Justering <span class="dict-cat">Logg og refleksjon</span></div>
+          <p class="dict-def">Å endre noe i planen etter at du har sett hva som faktisk skjer. Forutsetter at du har prøvd noe, logget det og lært av det. Gode justeringer gjør periode 2 bedre enn periode 1.</p>
+          <p class="dict-ex">En god trener justerer. En dårlig trener kjører samme plan uansett hva som skjer.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="logg">
+          <div class="dict-term">Medvirkning <span class="dict-cat">Logg og refleksjon</span></div>
+          <p class="dict-def">Å bidra aktivt til eget og andres læringsmiljø. Ikke bare delta — men inkludere, ta ansvar, hjelpe til og påvirke stemningen i gruppa.</p>
+          <p class="dict-ex">Den som bidrar til at alle kan delta og har det trygt, viser medvirkning — uavhengig av prestasjon.</p>
+        </div>
+
+        <!-- TRENINGSLÆRE -->
+
+        <div class="dict-entry" data-cat="trening">
+          <div class="dict-term">Belastning <span class="dict-cat">Treningslære</span></div>
+          <p class="dict-def">Summen av alt treningen krever av kroppen din. Styres av intensitet, varighet, antall økter og pauser. For mye belastning bryter kroppen ned. For lite gir ingen utvikling. Passe er det som funker.</p>
+          <p class="dict-ex">Tenk på belastning som solbading: akkurat nok gir brunfarge, for mye gir solbrenthet.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="trening">
+          <div class="dict-term">Intensitet <span class="dict-cat">Treningslære</span></div>
+          <p class="dict-def">Hvor hardt du jobber i en økt. Kan måles med puls, tempo, vekt eller opplevd anstrengelse (RPE-skala 1–10 der 10 er maks). Intensitet styrer hvilken effekt treningen gir.</p>
+          <p class="dict-ex">Rolig joggetur = 5/10. Intervaller der du ikke klarer å snakke = 9/10.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="trening">
+          <div class="dict-term">Progresjon <span class="dict-cat">Treningslære</span></div>
+          <p class="dict-def">Gradvis økning i krav over tid — mer belastning, høyere kvalitet, større kompleksitet. Kroppen tilpasser seg det du gjør, så du må gi den nye utfordringer for å fortsette å utvikle deg.</p>
+          <p class="dict-ex">Som spillnivåene i et videospill: for lett = kjedelig, for vanskelig = gi opp, passe utfordrende = utvikling.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="trening">
+          <div class="dict-term">Variasjon <span class="dict-cat">Treningslære</span></div>
+          <p class="dict-def">Bevisst veksling mellom øvelser, metoder, intensitet eller miljø. Forebygger stagnasjon, reduserer skaderisiko og holder motivasjonen oppe.</p>
+          <p class="dict-ex">Kroppen slutter å reagere på den samme stimulansen. Den som alltid løper samme runde i samme tempo blir ikke mye bedre.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="trening">
+          <div class="dict-term">Restitusjon <span class="dict-cat">Treningslære</span></div>
+          <p class="dict-def">Tida og tiltakene kroppen trenger for å hente seg inn og bli sterkere etter trening. Trening bryter kroppen ned — restitusjon bygger den opp igjen. Uten restitusjon stopper utviklingen.</p>
+          <p class="dict-ex">Søvn, mat og rolige dager er ikke latsabbel. De er en del av treningsarbeidet ditt.</p>
+        </div>
+
+        <!-- TESTING -->
+
+        <div class="dict-entry" data-cat="testing">
+          <div class="dict-term">Test <span class="dict-cat">Testing</span></div>
+          <p class="dict-def">En måling eller observasjon som gir informasjon om nivå, utvikling eller kvalitet. Testen må være relevant for målet ditt og du må kunne forklare hva den faktisk forteller.</p>
+          <p class="dict-ex">Maks benkpress er ikke en relevant test for en langdistanseløper.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="testing">
+          <div class="dict-term">Re-test <span class="dict-cat">Testing</span></div>
+          <p class="dict-def">Den samme testen gjennomføres på nytt etter en treningsperiode for å se om noe har endret seg. Re-testen er meningsfull bare hvis testen er standardisert.</p>
+          <p class="dict-ex">Som «before & after» — men med faktiske tall, ikke bare et bilde.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="testing">
+          <div class="dict-term">Standardisering <span class="dict-cat">Testing</span></div>
+          <p class="dict-def">Å gjennomføre testen likt hver gang: samme tid på dagen, samme oppvarming, samme betingelser. Uten standardisering er sammenligningen mellom testene meningsløs.</p>
+          <p class="dict-ex">Du kan ikke sammenligne en maks-test etter 10 minutters hvile med en etter tre timer trening og to gym-timer.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="testing">
+          <div class="dict-term">Arbeidskravsanalyse <span class="dict-cat">Testing</span></div>
+          <p class="dict-def">En gjennomgang av hva aktiviteten faktisk krever av deg: fysisk, teknisk, psykisk, taktisk og sosialt. Gir deg grunnlaget for å velge riktig treningsinnhold.</p>
+          <p class="dict-ex">Fotball krever ikke bare løping — det krever at du tenker raskt, tåler press og kommuniserer under trøkk.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="testing">
+          <div class="dict-term">Kapasitetsanalyse <span class="dict-cat">Testing</span></div>
+          <p class="dict-def">En ærlig vurdering av egne styrker og svakheter opp mot det aktiviteten krever. Gap mellom arbeidskrav og kapasitet = det du bør trene på.</p>
+          <p class="dict-ex">«Hva trenger aktiviteten, og hva har jeg akkurat nå?» Det gapet er treningsoppdraget ditt.</p>
+        </div>
+
+        <!-- HELSE -->
+
+        <div class="dict-entry" data-cat="helse">
+          <div class="dict-term">Fysisk helse <span class="dict-cat">Helse</span></div>
+          <p class="dict-def">Hvordan kroppen fungerer i hverdagen: kondisjon, styrke, bevegelighet, søvn og ernæring. Påvirkes av alle vaner du har over tid — ikke bare trening.</p>
+          <p class="dict-ex">God fysisk helse betyr ikke at du aldri er sliten. Det betyr at kroppen din henter seg inn og fungerer godt jevnt over.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="helse">
+          <div class="dict-term">Psykososial helse <span class="dict-cat">Helse</span></div>
+          <p class="dict-def">Den delen av helsen din som handler om å ha det bra mentalt, kjenne seg trygg, oppleve mestring og ha gode relasjoner. Trening kan styrke psykososial helse — men det er ikke automatisk.</p>
+          <p class="dict-ex">Du kan ha toppform og ha det psykisk dårlig. Begge deler er helse, og begge deler teller.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="helse">
+          <div class="dict-term">Helsefremmende livsstil <span class="dict-cat">Helse</span></div>
+          <p class="dict-def">Vaner som støtter helse over tid — bevegelse, søvn, mat, sosiale relasjoner og hvile. Handler ikke om perfekte valg, men om gode nok valg ofte nok.</p>
+          <p class="dict-ex">Det handler ikke om å slutte med alt artig — men om å ha nok av det som gjør kropp og hode godt.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="helse">
+          <div class="dict-term">Mestring <span class="dict-cat">Helse</span></div>
+          <p class="dict-def">Opplevelsen av å få til noe — eller å tåle noe vanskelig og lære av det. Mestring er ikke bare topp-resultater. Å klare noe du ikke klarte forrige uke er mestring.</p>
+          <p class="dict-ex">Den første pull-up'en etter seks uker med forsøk. Det er mestring, ikke VM-gull.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="helse">
+          <div class="dict-term">Motivasjon <span class="dict-cat">Helse</span></div>
+          <p class="dict-def">Det som gjør at du starter, holder ut og vil mer. Indre motivasjon (du vil det selv) er mer varig enn ytre (du gjør det for karakter eller ros). Gode mål og riktig progresjon holder motivasjonen oppe.</p>
+          <p class="dict-ex">Hvis du bare trener for å imponere andre, slutter du så fort ingen ser på. Egenmotivasjon varer lenger.</p>
+        </div>
+
+        <!-- BASISTRENING -->
+
+        <div class="dict-entry" data-cat="basis">
+          <div class="dict-term">Basistrening <span class="dict-cat">Basistrening</span></div>
+          <p class="dict-def">Trening av grunnleggende egenskaper som alle aktiviteter bygger på: kondisjon, styrke, bevegelighet, koordinasjon og mental robusthet. En god base gjør deg bedre i alt.</p>
+          <p class="dict-ex">Spesialtrening gjør deg bedre i én ting. Basistrening gjør deg bedre i alt.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="basis">
+          <div class="dict-term">Utholdenhet <span class="dict-cat">Basistrening</span></div>
+          <p class="dict-def">Evnen til å jobbe over tid uten for stor nedgang i kvalitet. Hjerte, lunger og muskler jobber effektivt og henter seg inn mens du er aktiv.</p>
+          <p class="dict-ex">Klarer du å snakke i fulle setninger mens du beveger deg? Da er du i utholdenhetssonen.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="basis">
+          <div class="dict-term">Styrke <span class="dict-cat">Basistrening</span></div>
+          <p class="dict-def">Evnen til å utvikle kraft mot motstand. Kan trenes eksplosivt (sprint, hopp), maksimalt (tunge løft) eller utholdende (mange repetisjoner med moderat motstand).</p>
+          <p class="dict-ex">Styrke er ikke bare store muskler — det er kontroll over kroppen din i bevegelse.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="basis">
+          <div class="dict-term">Bevegelighet <span class="dict-cat">Basistrening</span></div>
+          <p class="dict-def">Evnen til å bevege ledd og muskler gjennom et stort bevegelsesutslag. Reduserer skaderisiko, øker bevegelsesfrihet og gjør teknisk trening lettere.</p>
+          <p class="dict-ex">Kan du ta på tærne uten å bøye knærne? Det er bevegelighet i hamstrings — og det er trent, ikke medfødt.</p>
+        </div>
+
+        <div class="dict-entry" data-cat="basis">
+          <div class="dict-term">Koordinasjon <span class="dict-cat">Basistrening</span></div>
+          <p class="dict-def">Evnen til å samordne bevegelser presist og effektivt. Handler om timing, balanse, romforståelse og bevegelseskontroll — og det trenes, ikke bare «har» man.</p>
+          <p class="dict-ex">Dribling, kaste og ta imot ball, balansere på ett bein, bytte retning raskt — alt er koordinasjon.</p>
+        </div>
+
+      </div><!-- /dict-list -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="footer-phi">φ — Egentrening · Løype Labs AS © 2026</span>
+      <nav class="footer-links">
+        <a href="juridisk.html">Rettigheter og bruk</a>
+        <a href="juridisk.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
   </footer>
+
+  <script>
+    // Fade-up
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // Filter chips
+    const chips   = document.querySelectorAll('.dict-chip');
+    const entries = document.querySelectorAll('.dict-entry');
+    const counter = document.getElementById('dict-count');
+
+    const updateCount = () => {
+      const visible = [...entries].filter(e => !e.classList.contains('is-hidden')).length;
+      counter.textContent = `Viser ${visible} begrep${visible === 1 ? '' : 'er'}`;
+    };
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('is-active'));
+        chip.classList.add('is-active');
+
+        const cat = chip.dataset.cat;
+        entries.forEach(entry => {
+          entry.classList.toggle('is-hidden', cat !== 'alle' && entry.dataset.cat !== cat);
+        });
+        updateCount();
+      });
+    });
+  </script>
+
 </body>
 </html>

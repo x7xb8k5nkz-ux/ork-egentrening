@@ -3,87 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kroppsøving - Egentrening som gir utvikling</title>
+  <title>Kroppsøving — Egentrening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .trinn-btn { cursor: pointer; }
+    .trinn-btn.is-active { border-color: var(--cyan) !important; box-shadow: 0 0 0 1px var(--cyan); }
+    .trinn-actions { display: flex; align-items: center; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+    .req-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border: 1px solid var(--line); border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .req-badge span { font: 400 10px var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--ink-muted); }
+    .req-badge strong { font: 500 13px var(--font); color: var(--ink); }
+  </style>
 </head>
 <body>
-  <header class="site-header" aria-label="Hovednavigasjon">
-    <a class="brand" href="index.html">Egentrening</a>
-    <nav>
-      <a href="#oppskrift">Oppskrift</a>
-      <a href="#oppgaver">Oppgaver</a>
-      <a href="begreper.html">Begreper</a>
-      <a href="generator.html?vei=kroppsoving">Generator</a>
-    </nav>
-  </header>
 
-  <main id="top">
-    <section class="path-hero pe-hero" aria-labelledby="pe-title">
-      <div>
-        <p class="eyebrow">Kroppsøving</p>
-        <h1 id="pe-title">Egentrening for helse, mestring og aktivitet videre i livet</h1>
-        <p class="lead">I kroppsøving skal egentrening vise mer enn treningsfag. Du skal øve, delta, samarbeide, tilpasse, reflektere og forstå hvordan fysisk aktivitet kan støtte fysisk og psykososial helse.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#oppgaver">Velg oppgave</a>
-          <a class="button secondary" href="begreper.html">Begrepsbank</a>
-        </div>
-      </div>
-      <div class="path-summary">
-        <span>Læreplanblikk</span>
-        <strong>Øving, deltakelse, innsats og refleksjon</strong>
-        <p>Oppgavene bygger på kompetansemålene for Vg1, Vg2 og Vg3 og på at innsats, samspill, øving og deltakelse er en del av kompetansen i faget.</p>
-      </div>
-    </section>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Egentrening</a>
+      <ul class="nav-links">
+        <li><a href="kroppsoving.html">Kroppsøving</a></li>
+        <li><a href="breddeidrett.html">Breddeidrett</a></li>
+        <li><a href="begreper.html">Begreper</a></li>
+      </ul>
+      <a class="nav-cta" href="generator.html?vei=kroppsoving">Generator →</a>
+    </div>
+  </nav>
 
-    <section class="recipe-section" id="oppskrift" aria-labelledby="recipe-title">
-      <div class="section-heading">
+  <section class="path-hero">
+    <div class="path-hero-copy fade-up">
+      <p class="eyebrow">Kroppsøving</p>
+      <h1>Egentrening for helse, mestring og aktivitet videre i livet</h1>
+      <p>I kroppsøving skal egentrening vise mer enn treningsfag. Du skal øve, delta, samarbeide, tilpasse, reflektere og forstå hvordan fysisk aktivitet kan støtte fysisk og psykososial helse.</p>
+      <a class="btn btn-primary" href="#trinn" style="margin-top:24px">Velg ditt trinn</a>
+    </div>
+    <div class="path-summary fade-up">
+      <span class="label">Læreplanblikk</span>
+      <strong>Øving, deltakelse, innsats og refleksjon</strong>
+      <p>Oppgavene bygger på kompetansemålene for Vg1, Vg2 og Vg3. Innsats, samspill, øving og deltakelse er en del av kompetansen i faget.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)">
+    <div class="wrap">
+      <div class="section-header fade-up">
         <p class="eyebrow">Slik jobber du</p>
-        <h2 id="recipe-title">Plan før økta. Fokus i økta. Logg rett etterpå.</h2>
-        <p>Denne rytmen gjør det lettere å lære. Du henter fram egne erfaringer, setter ord på det du opplever, og bruker loggen når planen skal forbedres.</p>
+        <h2>Plan før. Fokus under. Logg rett etterpå.</h2>
       </div>
+      <ol class="quick-steps fade-up">
+        <li>
+          <span class="step-num">Før timen</span>
+          <strong>Øktplanen klar før start</strong>
+          <p>Skriv mål, aktivitet, øvelser, varighet, intensitet, tilpasning og ett fokuspunkt.</p>
+        </li>
+        <li>
+          <span class="step-num">I timen</span>
+          <strong>Gjennomfør med fokus</strong>
+          <p>Jobb etter planen, men tilpass klokt. Legg merke til innsats, mestring, motivasjon og samarbeid.</p>
+        </li>
+        <li>
+          <span class="step-num">Etter timen</span>
+          <strong>Logg personlig og konkret</strong>
+          <p>Skriv rett etter timen. Hva skjedde, hva påvirket økta, og hva bør gjøres neste gang.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-      <div class="recipe-grid">
-        <article class="method-box box-plan">
-          <span>Før timen</span>
-          <h3>Øktplanen skal være klar før økta starter.</h3>
-          <p>Skriv mål, aktivitet, øvelser, varighet, intensitet, tilpasning og ett fokuspunkt. Da vet du hva du skal prøve å få til.</p>
-        </article>
-        <article class="method-box box-task">
-          <span>I timen</span>
-          <h3>Gjennomfør med tydelig fokus.</h3>
-          <p>Jobb etter planen, men tilpass klokt. Legg merke til innsats, mestring, motivasjon, samarbeid, trygghet og hvordan kroppen responderer.</p>
-        </article>
-        <article class="method-box box-log">
-          <span>Etter timen</span>
-          <h3>Loggen skal være personlig og konkret.</h3>
-          <p>Skriv rett etter timen. Ta med hva du gjorde, hvordan det opplevdes, hva som påvirket økta og hva du bør gjøre neste gang.</p>
-        </article>
+  <hr class="divider">
+
+  <section class="section" id="trinn" style="padding-top:clamp(48px,7vw,80px);padding-bottom:0">
+    <div class="wrap">
+      <div class="section-header fade-up">
+        <p class="eyebrow">Velg ditt trinn</p>
+        <h2>Finn oppgaven som passer der du er.</h2>
+        <p>Klikk på trinnet ditt for å se oppgaven — krav, refleksjonsspørsmål og generatorlenke samlet på ett sted.</p>
       </div>
-    </section>
-
-    <section class="assignment-track pe-track" id="oppgaver" aria-labelledby="assignments-title">
-      <div class="section-heading">
-        <p class="eyebrow">Oppgaver</p>
-        <h2 id="assignments-title">Les oppgaven før du begynner å skrive planen.</h2>
-        <p>Alle oppgaver handler om egentrening, men hvert trinn har ulikt fokus fra læreplanen.</p>
+      <div class="path-grid fade-up" style="grid-template-columns:repeat(4,minmax(0,1fr));max-width:1100px">
+        <a class="path-card path-pe trinn-btn" data-select="vg1" href="#vg1">
+          <span>Vg1</span>
+          <strong>Plan mot et individuelt mål</strong>
+          <p>Minimum 2 økter</p>
+        </a>
+        <a class="path-card path-pe trinn-btn" data-select="vg2" href="#vg2">
+          <span>Vg2</span>
+          <strong>Egentrening og helse</strong>
+          <p>Minimum 3 økter</p>
+        </a>
+        <a class="path-card path-pe trinn-btn" data-select="vg3-utproving" href="#vg3-utproving">
+          <span>Vg3 — oppgave 1</span>
+          <strong>Prøverommet</strong>
+          <p>Minimum 2 økter</p>
+        </a>
+        <a class="path-card path-pe trinn-btn" data-select="vg3-slutt" href="#vg3-slutt">
+          <span>Vg3 — oppgave 2</span>
+          <strong>Sluttoppgaven</strong>
+          <p>Minimum 4 økter</p>
+        </a>
       </div>
+      <div class="trinn-actions fade-up">
+        <button type="button" class="btn btn-ghost trinn-btn" data-select="all">Vis alle trinn</button>
+      </div>
+    </div>
+  </section>
 
+  <section class="section" id="oppgaver">
+    <div class="wrap">
       <div class="task-stack">
-        <article class="task-panel pe-panel" id="vg1">
-          <div class="task-header">
-            <p class="period-kicker">Kroppsøving Vg1</p>
-            <h3>Planlegg og gjennomfør øving eller trening mot et individuelt mål</h3>
-            <div class="requirement-strip"><span>Minimum</span><strong>2 økter</strong></div>
+
+        <!-- Vg1 -->
+        <article class="task-panel pe-panel fade-up" id="vg1" data-panel="vg1">
+          <p class="eyebrow">Kroppsøving Vg1</p>
+          <h3>Planlegg og gjennomfør øving eller trening mot et individuelt mål</h3>
+          <div class="req-badge">
+            <span>Minimum</span>
+            <strong>2 økter</strong>
           </div>
           <p class="task-brief">Du skal lage en enkel og gjennomførbar egentreningsplan som passer dine forutsetninger. Oppgaven skal vise at du kan øve eller trene mot et individuelt mål, også hvis du må tilpasse aktiviteten.</p>
           <div class="reflection-block reflection-start">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Startrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg og treningen</p>
             <ol class="reflection-questions">
               <li>Beskriv deg selv som aktiv person akkurat nå — hva mestrer du, og hva er du usikker på?</li>
@@ -91,16 +137,16 @@
             </ol>
           </div>
           <div class="task-columns">
-            <div class="method-box box-task">
-              <span>Dette skal du levere</span>
+            <div class="task-col-box">
+              <strong>Dette skal du levere</strong>
               <ul>
                 <li>Et SMARTØF-mål som sier hva du vil utvikle.</li>
                 <li>Minst 2 øktplaner skrevet før øktene starter.</li>
                 <li>Logg etter hver økt og en kort sluttrefleksjon.</li>
               </ul>
             </div>
-            <div class="method-box box-health">
-              <span>Dette skal du vise</span>
+            <div class="task-col-box">
+              <strong>Dette skal du vise</strong>
               <ul>
                 <li>At du prøver etter beste evne og ikke gir opp med en gang.</li>
                 <li>At du kan samarbeide og bidra positivt i aktivitet.</li>
@@ -109,34 +155,37 @@
             </div>
           </div>
           <div class="theory-note">
-            <strong>Teori du trenger:</strong> mål, øving, tilpasning, innsats, trygg gjennomføring, logg og enkel refleksjon.
+            <strong>Teori du trenger:</strong>
+            <p>Mål, øving, tilpasning, innsats, trygg gjennomføring, logg og enkel refleksjon.</p>
           </div>
           <div class="reflection-block reflection-end">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Sluttrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg og treningen</p>
             <ol class="reflection-questions">
               <li>Hva skjedde faktisk — hva fungerte, og hva overrasket deg?</li>
               <li>Hva tar du med deg videre — og hva ser du annerledes nå enn da du startet?</li>
             </ol>
           </div>
-          <a class="button secondary task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg1">Bruk denne oppgaven i Generator →</a>
+          <a class="task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg1">Bruk denne oppgaven i Generator →</a>
         </article>
 
-        <article class="task-panel pe-panel" id="vg2">
-          <div class="task-header">
-            <p class="period-kicker">Kroppsøving Vg2</p>
-            <h3>Utfør trening på egen hånd og reflekter over helse og livsstil</h3>
-            <div class="requirement-strip"><span>Minimum</span><strong>3 økter</strong></div>
+        <!-- Vg2 -->
+        <article class="task-panel pe-panel fade-up" id="vg2" data-panel="vg2">
+          <p class="eyebrow">Kroppsøving Vg2</p>
+          <h3>Utfør trening på egen hånd og reflekter over helse og livsstil</h3>
+          <div class="req-badge">
+            <span>Minimum</span>
+            <strong>3 økter</strong>
           </div>
           <p class="task-brief">Du skal lage en egentreningsplan der du undersøker hvordan fysisk aktivitet kan utvikle kroppen og støtte psykisk og fysisk helse. Du skal beskrive utgangspunktet ditt, men du skal ikke skrive kapasitetsanalyse.</p>
           <div class="reflection-block reflection-start">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Startrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, kroppen og helsen</p>
             <ol class="reflection-questions">
               <li>Hvor er kroppen din og hodet ditt nå — hva i hverdagen gjør det lettere eller vanskeligere å trene?</li>
@@ -144,16 +193,16 @@
             </ol>
           </div>
           <div class="task-columns">
-            <div class="method-box box-goal">
-              <span>Dette skal du levere</span>
+            <div class="task-col-box">
+              <strong>Dette skal du levere</strong>
               <ul>
                 <li>Et mål knyttet til helse, fysisk utvikling eller livsstil.</li>
                 <li>Minst 3 øktplaner med aktivitet, intensitet, varighet og progresjon.</li>
                 <li>Logg og refleksjon om hvordan aktiviteten påvirket deg.</li>
               </ul>
             </div>
-            <div class="method-box box-reflect">
-              <span>Dette skal du vise</span>
+            <div class="task-col-box">
+              <strong>Dette skal du vise</strong>
               <ul>
                 <li>At du forstår hvordan aktivitet kan utvikle styrke, utholdenhet, bevegelighet eller koordinasjon.</li>
                 <li>At du kan reflektere over psykisk helse, fysisk helse og helsefremmende livsstil.</li>
@@ -162,34 +211,37 @@
             </div>
           </div>
           <div class="theory-note">
-            <strong>Teori du trenger:</strong> intensitet, belastning, progresjon, restitusjon, helse, motivasjon, fellesskap og livsstil.
+            <strong>Teori du trenger:</strong>
+            <p>Intensitet, belastning, progresjon, restitusjon, helse, motivasjon, fellesskap og livsstil.</p>
           </div>
           <div class="reflection-block reflection-end">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Sluttrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, kroppen og helsen</p>
             <ol class="reflection-questions">
               <li>Hva skjedde faktisk — med treningen, kroppen og motivasjonen din?</li>
               <li>Så du noen sammenheng mellom treningen og resten av livet ditt — og ser du for deg at du er aktiv om fem år?</li>
             </ol>
           </div>
-          <a class="button secondary task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg2">Bruk denne oppgaven i Generator →</a>
+          <a class="task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg2">Bruk denne oppgaven i Generator →</a>
         </article>
 
-        <article class="task-panel pe-panel" id="vg3-utproving">
-          <div class="task-header">
-            <p class="period-kicker">Kroppsøving Vg3 - oppgave 1</p>
-            <h3>Prøverommet: utfordre deg selv og lær av det som skjer</h3>
-            <div class="requirement-strip"><span>Minimum</span><strong>2 økter</strong></div>
+        <!-- Vg3 oppgave 1 -->
+        <article class="task-panel pe-panel fade-up" id="vg3-utproving" data-panel="vg3-utproving">
+          <p class="eyebrow">Kroppsøving Vg3 — oppgave 1</p>
+          <h3>Prøverommet: utfordre deg selv og lær av det som skjer</h3>
+          <div class="req-badge">
+            <span>Minimum</span>
+            <strong>2 økter</strong>
           </div>
           <p class="task-brief">Dette er en utprøvingsoppgave. Du skal teste en aktivitet, treningsform eller utfordring som kan lære deg noe om deg selv. Det er lov å feile, justere og prøve igjen. Poenget er at du viser læring.</p>
           <div class="reflection-block reflection-start">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Startrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, helsen og samfunnet</p>
             <ol class="reflection-questions">
               <li>Tre år med kroppsøving snart over — hva vet du om deg selv som aktiv person at du ikke visste da du begynte?</li>
@@ -197,16 +249,16 @@
             </ol>
           </div>
           <div class="task-columns">
-            <div class="method-box box-task">
-              <span>Dette skal du levere</span>
+            <div class="task-col-box">
+              <strong>Dette skal du levere</strong>
               <ul>
                 <li>En kort plan for hva du vil prøve ut og hvorfor.</li>
                 <li>Øktplaner skrevet før øktene starter.</li>
                 <li>Logg som beskriver konkrete opplevelser, valg og justeringer.</li>
               </ul>
             </div>
-            <div class="method-box box-health">
-              <span>Dette skal du vise</span>
+            <div class="task-col-box">
+              <strong>Dette skal du vise</strong>
               <ul>
                 <li>At du tør å utfordre egne forutsetninger på en trygg måte.</li>
                 <li>At du kan sette ord på mestring, motivasjon, kropp og grenser.</li>
@@ -215,34 +267,37 @@
             </div>
           </div>
           <div class="theory-note">
-            <strong>Teori du trenger:</strong> prøving og feiling, mestring, motivasjon, selvregulering, trygghet og læring gjennom erfaring.
+            <strong>Teori du trenger:</strong>
+            <p>Prøving og feiling, mestring, motivasjon, selvregulering, trygghet og læring gjennom erfaring.</p>
           </div>
           <div class="reflection-block reflection-end">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Sluttrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, helsen og samfunnet</p>
             <ol class="reflection-questions">
               <li>Hva skjedde — og hva var annerledes enn du hadde tenkt?</li>
               <li>Hva har tre år med egentrening gitt deg utover det fysiske — og hva tar du med deg ut av skolen?</li>
             </ol>
           </div>
-          <a class="button secondary task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg3+-+pr%C3%B8verommet">Bruk denne oppgaven i Generator →</a>
+          <a class="task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg3+-+pr%C3%B8verommet">Bruk denne oppgaven i Generator →</a>
         </article>
 
-        <article class="task-panel pe-panel" id="vg3-slutt">
-          <div class="task-header">
-            <p class="period-kicker">Kroppsøving Vg3 - oppgave 2</p>
-            <h3>Sluttoppgaven: bruk det du har lært gjennom videregående</h3>
-            <div class="requirement-strip"><span>Minimum</span><strong>4 økter</strong></div>
+        <!-- Vg3 oppgave 2 -->
+        <article class="task-panel pe-panel fade-up" id="vg3-slutt" data-panel="vg3-slutt">
+          <p class="eyebrow">Kroppsøving Vg3 — oppgave 2</p>
+          <h3>Sluttoppgaven: bruk det du har lært gjennom videregående</h3>
+          <div class="req-badge">
+            <span>Minimum</span>
+            <strong>4 økter</strong>
           </div>
           <p class="task-brief">Du skal planlegge, gjennomføre og vurdere egentrening selvstendig. Oppgaven skal vise hvordan erfaringene dine kan bidra til en fysisk aktiv og helsefremmende livsstil etter skole.</p>
           <div class="reflection-block reflection-start">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Startrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, helsen og samfunnet</p>
             <ol class="reflection-questions">
               <li>Tre år med kroppsøving snart over — hva vet du om deg selv som aktiv person at du ikke visste da du begynte?</li>
@@ -250,16 +305,16 @@
             </ol>
           </div>
           <div class="task-columns">
-            <div class="method-box box-log">
-              <span>Dette skal du levere</span>
+            <div class="task-col-box">
+              <strong>Dette skal du levere</strong>
               <ul>
                 <li>Et mål og minst 4 øktplaner med faglig begrunnelse.</li>
                 <li>Logg som viser gjennomføring, opplevelser og justeringer.</li>
                 <li>Sluttrefleksjon som bruker erfaringer fra hele videregående løp.</li>
               </ul>
             </div>
-            <div class="method-box box-reflect">
-              <span>Dette skal du vise</span>
+            <div class="task-col-box">
+              <strong>Dette skal du vise</strong>
               <ul>
                 <li>At du kan vurdere egentrening selvstendig.</li>
                 <li>At du kan drøfte bevegelse, kropp, trening, helse og samfunn.</li>
@@ -268,33 +323,75 @@
             </div>
           </div>
           <div class="theory-note">
-            <strong>Teori du trenger:</strong> helsefremmende livsstil, fysisk og psykososial helse, kropp og samfunn, medvirkning, refleksjon og kritisk tenkning.
+            <strong>Teori du trenger:</strong>
+            <p>Helsefremmende livsstil, fysisk og psykososial helse, kropp og samfunn, medvirkning, refleksjon og kritisk tenkning.</p>
           </div>
           <div class="reflection-block reflection-end">
-            <div class="reflection-header">
+            <header>
               <span class="reflection-badge">Sluttrefleksjon</span>
               <span class="no-ai-badge">Svar selv — ikke bruk KI</span>
-            </div>
+            </header>
             <p class="reflection-theme">Jeg, helsen og samfunnet</p>
             <ol class="reflection-questions">
               <li>Hva skjedde — og hva var annerledes enn du hadde tenkt?</li>
               <li>Hva har tre år med egentrening gitt deg utover det fysiske — og hva tar du med deg ut av skolen?</li>
             </ol>
           </div>
-          <a class="button secondary task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg3+-+sluttoppgave">Bruk denne oppgaven i Generator →</a>
+          <a class="task-gen-link" href="generator.html?vei=kroppsoving&oppgave=Kropps%C3%B8ving+Vg3+-+sluttoppgave">Bruk denne oppgaven i Generator →</a>
         </article>
+
       </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-    <div>
-      <strong>Et læringsverktøy fra Løype Labs AS</strong>
-      <p>© 2026 Løype Labs AS. Innhold, design, struktur og promptmaler er beskyttet. Alle rettigheter forbeholdt.</p>
     </div>
-    <nav aria-label="Bunnlenker">
-      <a href="juridisk.html">Rettigheter og bruk</a>
-      <a href="juridisk.html#kontakt">Kontakt</a>
-    </nav>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="footer-phi">φ — Egentrening · Løype Labs AS © 2026</span>
+      <nav class="footer-links">
+        <a href="juridisk.html">Rettigheter og bruk</a>
+        <a href="juridisk.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
   </footer>
+
+  <script>
+    // Fade-up on scroll
+    const fadeObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+    // Trinn selector
+    const selBtns = document.querySelectorAll('.trinn-btn');
+    const panels  = document.querySelectorAll('[data-panel]');
+    const allBtn  = document.querySelector('[data-select="all"]');
+
+    // Start: all visible, "Vis alle" marked active
+    if (allBtn) allBtn.classList.add('is-active');
+
+    selBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        const target = btn.dataset.select;
+        if (!target) return;
+        e.preventDefault();
+
+        selBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        if (target === 'all') {
+          panels.forEach(p => { p.hidden = false; });
+          return;
+        }
+
+        panels.forEach(p => { p.hidden = p.dataset.panel !== target; });
+
+        setTimeout(() => {
+          const el = document.querySelector(`[data-panel="${target}"]`);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      });
+    });
+  </script>
+
 </body>
 </html>
