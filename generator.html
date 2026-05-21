@@ -9,43 +9,58 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css?v=2">
   <style>
-    /* Hide native radio/checkbox, keep label clickable */
-    .seg-btn input[type="radio"],
-    .period-btn input[type="radio"] {
-      position: absolute; clip: rect(0,0,0,0);
-      width: 1px; height: 1px; pointer-events: none;
+    /* Vei-knapper */
+    .vei-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;
     }
-    .seg-btn { cursor: pointer; }
-    .seg-btn:has(input:checked) { background: var(--bg-elev); color: var(--ink); }
-    .period-btn { cursor: pointer; text-align: left; }
-    .period-btn:has(input:checked) { background: var(--bg-elev); color: var(--ink); border-color: var(--cyan); }
-
-    /* Fieldset reset */
-    fieldset { border: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-    legend { font: 400 10px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); padding: 0; margin-bottom: 4px; }
-
-    /* Period grid overrides */
-    .pe-choice-grid   { grid-template-columns: repeat(4,1fr); }
-    .bredde-choice-grid { grid-template-columns: repeat(3,1fr); }
-    @media(max-width:700px) {
-      .pe-choice-grid { grid-template-columns: repeat(2,1fr); }
-      .bredde-choice-grid { grid-template-columns: repeat(2,1fr); }
+    .vei-btn {
+      padding: 20px 24px; background: var(--bg-soft);
+      border: 1px solid var(--line); border-radius: var(--r-lg);
+      cursor: pointer; text-align: left; transition: all .2s var(--ease);
     }
+    .vei-btn:hover { border-color: var(--line-strong); }
+    .vei-btn[aria-pressed="true"] { border-color: var(--cyan); background: var(--bg-elev); }
+    .vei-btn[aria-pressed="true"] .vei-label { color: var(--cyan); }
+    .vei-label {
+      display: block; font: 500 16px var(--font); color: var(--ink); margin-bottom: 4px;
+    }
+    .vei-sub { font-size: 13px; color: var(--ink-soft); }
 
-    /* Output textarea styled like gen-output-pre */
+    /* Oppgaveknapper */
+    .task-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;
+    }
+    .task-btn {
+      padding: 14px 16px; background: var(--bg-soft);
+      border: 1px solid var(--line); border-radius: var(--r-md);
+      cursor: pointer; text-align: left; transition: all .2s var(--ease);
+    }
+    .task-btn:hover { border-color: var(--line-strong); }
+    .task-btn[aria-pressed="true"] { border-color: var(--cyan); background: var(--bg-elev); }
+    .task-btn[aria-pressed="true"] .task-btn-label { color: var(--cyan); }
+    .task-btn-label {
+      display: block; font: 500 14px var(--font); color: var(--ink); margin-bottom: 3px;
+    }
+    .task-btn-sub { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+
+    /* Output textarea */
     #prompt-output {
-      width: 100%; min-height: 300px; max-height: 520px;
+      width: 100%; min-height: 320px; max-height: 560px;
       overflow-y: auto; padding: 16px; resize: none;
       background: var(--bg-elev); border: 1px solid var(--line);
       border-radius: var(--r-md); font: 400 13px/1.65 var(--font);
-      color: var(--ink-soft); white-space: pre-wrap;
-      margin-bottom: 12px;
+      color: var(--ink-soft); white-space: pre-wrap; margin-bottom: 12px;
     }
     #prompt-output:focus { outline: none; border-color: var(--cyan); }
 
     .output-note {
       font: 400 11px var(--mono); letter-spacing: .12em;
       color: var(--ink-muted); margin: 8px 0 0; max-width: none;
+    }
+
+    @media(max-width:600px) {
+      .vei-grid { grid-template-columns: 1fr; }
+      .task-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -65,19 +80,19 @@
 
   <div class="gen-page">
 
-    <!-- Hero -->
     <div class="gen-hero wrap fade-up">
       <div class="gen-hero-copy">
         <p class="eyebrow">Tilbakemeldingsverktøy</p>
-        <h1>Lag en god bestilling til Copilot.</h1>
-        <p>Velg vei, nivå og fokus. Lim inn teksten din, så får du en prompt som ber om konkret, faglig og utviklingsorientert tilbakemelding.</p>
+        <h1>Få tilbakemelding på egentreningsarbeidet ditt.</h1>
+        <p>Lim inn det du har skrevet. Generatoren lager en prompt som gir deg konkret, faglig tilbakemelding — klar til å lime inn i Copilot.</p>
       </div>
       <div class="copilot-guide">
-        <strong>Slik bruker du generatoren</strong>
+        <strong>Slik gjør du det</strong>
         <ol class="copilot-how-steps">
-          <li><span>1</span> Fyll inn feltene under og trykk <em>Generer prompt</em></li>
-          <li><span>2</span> Trykk <em>Kopier</em> i resultatfeltet</li>
-          <li><span>3</span> Åpne Copilot, lim inn og trykk Enter</li>
+          <li><span>1</span> Velg fag og oppgave under</li>
+          <li><span>2</span> Lim inn alt du har skrevet</li>
+          <li><span>3</span> Trykk <em>Generer</em> og kopier</li>
+          <li><span>4</span> Lim inn i Copilot og trykk Enter</li>
         </ol>
         <a class="btn btn-ghost" href="https://copilot.microsoft.com" target="_blank" rel="noopener noreferrer" style="margin-top:14px;padding:9px 16px;font-size:12px">Åpne Copilot →</a>
       </div>
@@ -85,120 +100,52 @@
 
     <hr class="divider">
 
-    <!-- Form + Output -->
     <div class="gen-form-wrap" id="generator">
 
-      <form class="gen-form fade-up">
+      <form class="gen-form fade-up" id="gen-form">
 
-        <!-- 1. Velg vei -->
+        <!-- 1. Velg fag -->
         <div class="form-group">
-          <span class="form-label">1 — Velg vei</span>
-          <div class="seg-btns">
-            <label class="seg-btn" for="track-kroppsoving">
-              <input type="radio" id="track-kroppsoving" name="track" value="kroppsoving" checked>
-              Kroppsøving
-            </label>
-            <label class="seg-btn" for="track-breddeidrett">
-              <input type="radio" id="track-breddeidrett" name="track" value="breddeidrett">
-              Breddeidrett
-            </label>
+          <span class="form-label">1 — Hvilket fag?</span>
+          <div class="vei-grid">
+            <button type="button" class="vei-btn" data-vei="kroppsoving" aria-pressed="true">
+              <span class="vei-label">Kroppsøving</span>
+              <span class="vei-sub">Helse, deltakelse og refleksjon</span>
+            </button>
+            <button type="button" class="vei-btn" data-vei="breddeidrett" aria-pressed="false">
+              <span class="vei-label">Breddeidrett</span>
+              <span class="vei-sub">Testing, prestasjon og progresjon</span>
+            </button>
           </div>
         </div>
 
-        <!-- 2a. Velg oppgave (Kroppsøving) -->
-        <fieldset data-track-section="kroppsoving">
-          <legend>2 — Velg oppgave</legend>
-          <div class="period-selector pe-choice-grid">
-            <label class="period-btn" for="pe-vg1">
-              <input type="radio" id="pe-vg1" name="peTask" value="Kroppsøving Vg1" checked>
-              <span class="pb-num">Vg1</span>
-              <span class="pb-name">Mål og deltakelse</span>
-            </label>
-            <label class="period-btn" for="pe-vg2">
-              <input type="radio" id="pe-vg2" name="peTask" value="Kroppsøving Vg2">
-              <span class="pb-num">Vg2</span>
-              <span class="pb-name">Helse og livsstil</span>
-            </label>
-            <label class="period-btn" for="pe-vg3a">
-              <input type="radio" id="pe-vg3a" name="peTask" value="Kroppsøving Vg3 - prøverommet">
-              <span class="pb-num">Vg3·1</span>
-              <span class="pb-name">Prøverommet</span>
-            </label>
-            <label class="period-btn" for="pe-vg3b">
-              <input type="radio" id="pe-vg3b" name="peTask" value="Kroppsøving Vg3 - sluttoppgave">
-              <span class="pb-num">Vg3·2</span>
-              <span class="pb-name">Sluttoppgaven</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <!-- 2b. Velg periodesteg (Breddeidrett) -->
-        <fieldset data-track-section="breddeidrett" hidden>
-          <legend>2 — Velg periodesteg</legend>
-          <div class="period-selector bredde-choice-grid">
-            <label class="period-btn" for="b1p1">
-              <input type="radio" id="b1p1" name="breddeStep" value="Breddeidrett 1 - periode 1" checked>
-              <span class="pb-num">B1·P1</span>
-              <span class="pb-name">Mål, test og logg</span>
-            </label>
-            <label class="period-btn" for="b1p2">
-              <input type="radio" id="b1p2" name="breddeStep" value="Breddeidrett 1 - periode 2">
-              <span class="pb-num">B1·P2</span>
-              <span class="pb-name">Enkel progresjon</span>
-            </label>
-            <label class="period-btn" for="b2p1">
-              <input type="radio" id="b2p1" name="breddeStep" value="Breddeidrett 2 - periode 1">
-              <span class="pb-num">B2·P1</span>
-              <span class="pb-name">Analyse og metode</span>
-            </label>
-            <label class="period-btn" for="b2p2">
-              <input type="radio" id="b2p2" name="breddeStep" value="Breddeidrett 2 - periode 2">
-              <span class="pb-num">B2·P2</span>
-              <span class="pb-name">Begrunn og juster</span>
-            </label>
-            <label class="period-btn" for="b3p1">
-              <input type="radio" id="b3p1" name="breddeStep" value="Breddeidrett 3 - periode 1">
-              <span class="pb-num">B3·P1</span>
-              <span class="pb-name">Dokumentasjon</span>
-            </label>
-            <label class="period-btn" for="b3p2">
-              <input type="radio" id="b3p2" name="breddeStep" value="Breddeidrett 3 - periode 2">
-              <span class="pb-num">B3·P2</span>
-              <span class="pb-name">Optimaliser</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <!-- 3. Fokus -->
+        <!-- 2. Velg oppgave (byttes ut av JS) -->
         <div class="form-group">
-          <label class="form-label" for="focus">3 — Velg fokusområde</label>
-          <select id="focus" name="focus" class="gen-select">
-            <option value="Helhetlig vurdering">Helhetlig vurdering</option>
-          </select>
+          <span class="form-label">2 — Hvilken oppgave?</span>
+          <div class="task-grid" id="task-grid"></div>
         </div>
 
-        <!-- 4. Startrefleksjon -->
+        <!-- 3. Lim inn arbeidet -->
         <div class="form-group">
-          <label class="form-label" for="start-reflection">4 — Lim inn startrefleksjonen din</label>
-          <textarea id="start-reflection" name="start-reflection" class="gen-textarea" placeholder="Lim inn det du skrev i startrefleksjonen — hva var utgangspunktet ditt, og hva planla du å gjøre?"></textarea>
+          <label class="form-label" for="student-work">3 — Lim inn arbeidet ditt</label>
+          <textarea
+            id="student-work"
+            class="gen-textarea tall"
+            placeholder="Lim inn alt du har skrevet: startrefleksjonen, øktplanene, loggen og sluttrefleksjonen. Jo mer du skriver, jo bedre tilbakemelding får du."></textarea>
         </div>
 
-        <!-- 5. Arbeid -->
-        <div class="form-group">
-          <label class="form-label" for="student-text">5 — Lim inn øktplan, logg og sluttrefleksjon</label>
-          <textarea id="student-text" name="student-text" class="gen-textarea tall" placeholder="Lim inn mål, øktplaner, treningslogg, testresultater og sluttrefleksjonen din her."></textarea>
-        </div>
-
-        <button class="btn btn-primary" type="button" id="generate-prompt">Generer prompt</button>
+        <button class="btn btn-primary" type="button" id="generate-btn" style="width:100%;justify-content:center">
+          Generer prompt
+        </button>
 
       </form>
 
       <!-- Output -->
-      <aside class="gen-output-panel fade-up" aria-labelledby="prompt-output-title">
+      <aside class="gen-output-panel fade-up">
         <div class="gen-output-card">
-          <span class="form-label" id="prompt-output-title">Ferdig prompt</span>
-          <textarea id="prompt-output" readonly placeholder="Velg vei og oppgave. Lim inn startrefleksjonen og arbeidet ditt, trykk «Generer prompt»."></textarea>
-          <button class="gen-copy-btn" type="button" id="copy-prompt">Kopier</button>
+          <span class="form-label" style="display:block;margin-bottom:12px">Ferdig prompt</span>
+          <textarea id="prompt-output" readonly placeholder="Velg fag og oppgave, lim inn arbeidet ditt og trykk «Generer prompt»."></textarea>
+          <button class="gen-copy-btn" type="button" id="copy-btn">Kopier</button>
           <p class="output-note">Tilbakemeldingen fra Copilot er veiledende. Lærer vurderer samlet kompetanse.</p>
         </div>
       </aside>
@@ -217,13 +164,254 @@
   </footer>
 
   <script>
-    // Fade-up
+    // ─── Fade-up ───────────────────────────────────────────────────────────
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // ─── Data ──────────────────────────────────────────────────────────────
+    const tasks = {
+      kroppsoving: [
+        { value: 'Kroppsøving Vg1',               label: 'Vg1',              sub: 'Plan mot individuelt mål — min. 2 økter' },
+        { value: 'Kroppsøving Vg2',               label: 'Vg2',              sub: 'Trening, helse og livsstil — min. 3 økter' },
+        { value: 'Kroppsøving Vg3 - prøverommet', label: 'Vg3 — Prøverommet', sub: 'Utfordre og lære — min. 2 økter' },
+        { value: 'Kroppsøving Vg3 - sluttoppgave',label: 'Vg3 — Sluttoppgave', sub: 'Hele videregående samlet — min. 4 økter' },
+      ],
+      breddeidrett: [
+        { value: 'Breddeidrett 1 - periode 1', label: 'Breddeidrett 1 — periode 1', sub: 'Mål, test og logg — 4 økter' },
+        { value: 'Breddeidrett 1 - periode 2', label: 'Breddeidrett 1 — periode 2', sub: 'Vis progresjon fra periode 1 — 4 økter' },
+        { value: 'Breddeidrett 2 - periode 1', label: 'Breddeidrett 2 — periode 1', sub: 'Koble analyse og treningsmetode — 4 økter' },
+        { value: 'Breddeidrett 2 - periode 2', label: 'Breddeidrett 2 — periode 2', sub: 'Begrunn og juster presist — 4 økter' },
+        { value: 'Breddeidrett 3 - periode 1', label: 'Breddeidrett 3 — periode 1', sub: 'Dokumenter og vurder selvstendig — 4 økter' },
+        { value: 'Breddeidrett 3 - periode 2', label: 'Breddeidrett 3 — periode 2', sub: 'Optimaliser og drøft — 4 økter' },
+      ],
+    };
+
+    const taskFrames = {
+      'Kroppsøving Vg1': {
+        subject: 'Kroppsøving Vg1',
+        frame: 'Kroppsøving Vg1 vurderes med vekt på trygg deltakelse, øving mot individuelle mål, innsats, samarbeid og enkel refleksjon over egen utvikling.',
+        next: 'Neste steg er å gjøre målet, øktplanen og loggen tydeligere, og vise hva eleven lærer av egen innsats.',
+        focus: [
+          'Vurder om eleven har planlagt minst 2 økter og skrevet øktplan før start.',
+          'Vurder om loggen er personlig, konkret og kan brukes til å justere videre trening.',
+          'Vurder om eleven viser innsats og reflekterer over hva de faktisk lærte.',
+        ],
+      },
+      'Kroppsøving Vg2': {
+        subject: 'Kroppsøving Vg2',
+        frame: 'Kroppsøving Vg2 vurderes med vekt på helse, fysisk kapasitet, fellesskap, medvirkning og refleksjon over hvordan aktivitet påvirker kropp og psykisk helse. Eleven skal ikke skrive kapasitetsanalyse.',
+        next: 'Neste steg er å forklare tydeligere hvordan aktivitetene påvirker helse, kapasitet og livsstil.',
+        focus: [
+          'Vurder om eleven har planlagt minst 3 økter.',
+          'Vurder om eleven bruker begreper som intensitet, belastning, progresjon og restitusjon på en forståelig måte.',
+          'Vurder om refleksjonen kobler trening til psykisk og fysisk helse.',
+        ],
+      },
+      'Kroppsøving Vg3 - prøverommet': {
+        subject: 'Kroppsøving Vg3',
+        frame: 'Dette er utprøvingsoppgaven i Vg3. Eleven skal utfordre seg selv, teste noe nytt og lære av erfaringene. Det er lov å feile og prøve på nytt — poenget er at eleven viser læring, ikke perfekte resultater.',
+        next: 'Neste steg er å bruke erfaringene til å forstå motivasjon, mestring, kropp og hva som kan gjøre aktivitet meningsfull videre.',
+        focus: [
+          'Vurder om øktene er planlagt og gjennomført med et tydelig utprøvingsfokus.',
+          'Vurder om loggen beskriver konkrete erfaringer, valg og justeringer.',
+          'Vurder om refleksjonen viser læring — ikke bare resultat.',
+        ],
+      },
+      'Kroppsøving Vg3 - sluttoppgave': {
+        subject: 'Kroppsøving Vg3',
+        frame: 'Dette er sluttoppgaven i Vg3. Eleven skal bruke det de har lært gjennom videregående til å planlegge, gjennomføre og vurdere egentrening selvstendig — med refleksjon over helse, livsstil, kropp, samfunn og medvirkning.',
+        next: 'Neste steg er å gjøre vurderingen mer selvstendig og drøfte hvordan erfaringene kan støtte en aktiv livsstil etter skolen.',
+        focus: [
+          'Vurder om eleven har planlagt minst 4 økter med faglig begrunnelse.',
+          'Vurder om eleven bruker loggen og egne erfaringer som grunnlag for vurdering.',
+          'Vurder om eleven drøfter sammenhenger mellom trening, helse, kropp og eget liv etter skolen.',
+        ],
+      },
+      'Breddeidrett 1 - periode 1': {
+        subject: 'Breddeidrett 1',
+        frame: 'Breddeidrett 1 periode 1 handler om å forstå grunnstrukturen: mål, øktplan, enkel testing og logg. Eleven skal gjennomføre minst 4 økter og bruke test eller observasjon for å beskrive utgangspunktet.',
+        next: 'Neste steg er å bruke erfaringer, logg og test fra periode 1 til å justere og forbedre periode 2.',
+        focus: [
+          'Vurder om eleven har et SMARTØF-mål og har valgt en relevant test eller observasjon.',
+          'Vurder om øktplanene er skrevet før øktene og inneholder hva, hvordan og hvorfor.',
+          'Vurder om loggen viser konkrete erfaringer fra hver økt.',
+        ],
+      },
+      'Breddeidrett 1 - periode 2': {
+        subject: 'Breddeidrett 1',
+        frame: 'Breddeidrett 1 periode 2 handler om å vise enkel progresjon fra første periode. Eleven skal gjennomføre minst 4 økter og forklare hva som er justert og hvorfor.',
+        next: 'Neste steg er å forklare tydeligere hva som er videreført, endret og forbedret fra periode 1.',
+        focus: [
+          'Vurder om periode 2 bygger tydelig på erfaringer fra periode 1.',
+          'Vurder om eleven viser progresjon i mål, øvelser, belastning eller fokus.',
+          'Vurder om re-test eller observasjon brukes til å vise utvikling.',
+        ],
+      },
+      'Breddeidrett 2 - periode 1': {
+        subject: 'Breddeidrett 2',
+        frame: 'Breddeidrett 2 periode 1 handler om å koble arbeidskravsanalyse og kapasitetsanalyse til treningsmetoder. Eleven skal gjennomføre minst 4 økter og velge test eller observasjon som passer målet.',
+        next: 'Neste steg er å bruke analysen og loggen til å justere metodevalg og belastning mer presist i periode 2.',
+        focus: [
+          'Vurder om arbeidskravs- og kapasitetsanalysen er relevante og koblet til treningsvalg.',
+          'Vurder om øktplanene forklarer hva, hvordan og hvorfor.',
+          'Vurder om testen faktisk måler noe relevant for aktiviteten og målet.',
+        ],
+      },
+      'Breddeidrett 2 - periode 2': {
+        subject: 'Breddeidrett 2',
+        frame: 'Breddeidrett 2 periode 2 handler om å begrunne metodevalg og justere mer presist. Eleven skal vise hvordan periode 2 bygger faglig på periode 1.',
+        next: 'Neste steg er å gjøre sammenhengen mellom trening, helse, prestasjon og egne forutsetninger enda tydeligere.',
+        focus: [
+          'Vurder om metodevalg er begrunnet faglig med analyse og egne forutsetninger.',
+          'Vurder om re-test, video eller observasjon brukes til å vurdere effekt av treningen.',
+          'Vurder om eleven ser sammenhengen mellom belastning, restitusjon og prestasjon.',
+        ],
+      },
+      'Breddeidrett 3 - periode 1': {
+        subject: 'Breddeidrett 3',
+        frame: 'Breddeidrett 3 periode 1 handler om å bruke dokumentasjon til å videreutvikle ferdigheter. Eleven skal vurdere om dokumentasjonen er relevant og pålitelig — ikke bare samle data.',
+        next: 'Neste steg er å bruke dokumentasjonen mer kritisk og justere treningsarbeidet med større selvstendighet i periode 2.',
+        focus: [
+          'Vurder om eleven bruker test, video, observasjon eller logg som meningsfull dokumentasjon.',
+          'Vurder om planen viser progresjon, variasjon og belastningsstyring.',
+          'Vurder om eleven analyserer kvalitet, belastning, motivasjon og utvikling.',
+        ],
+      },
+      'Breddeidrett 3 - periode 2': {
+        subject: 'Breddeidrett 3',
+        frame: 'Breddeidrett 3 periode 2 er det mest selvstendige steget. Eleven skal optimalisere, drøfte og vurdere hva som faktisk forklarer utviklingen — og begrunne hva som bør videreføres, endres eller kuttes.',
+        next: 'Neste steg er å prioritere tiltak selvstendig og begrunne neste treningsrunde uten å bare gjøre mer av alt.',
+        focus: [
+          'Vurder om eleven drøfter trening, helse, prestasjon og læringsmiljø selvstendig.',
+          'Vurder om dokumentasjon brukes til å begrunne konkrete justeringer.',
+          'Vurder om eleven viser tydelig utvikling og økt kompleksitet fra tidligere perioder.',
+        ],
+      },
+    };
+
+    // ─── State ─────────────────────────────────────────────────────────────
+    let currentTrack = 'kroppsoving';
+    let currentTask  = tasks.kroppsoving[0].value;
+
+    // ─── Render oppgavevalg ────────────────────────────────────────────────
+    function renderTasks() {
+      const grid = document.getElementById('task-grid');
+      grid.innerHTML = '';
+      tasks[currentTrack].forEach(t => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'task-btn';
+        btn.dataset.task = t.value;
+        btn.setAttribute('aria-pressed', t.value === currentTask ? 'true' : 'false');
+        btn.innerHTML = `<span class="task-btn-label">${t.label}</span><span class="task-btn-sub">${t.sub}</span>`;
+        btn.addEventListener('click', () => selectTask(t.value));
+        grid.appendChild(btn);
+      });
+    }
+
+    // ─── Velg vei ──────────────────────────────────────────────────────────
+    document.querySelectorAll('.vei-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentTrack = btn.dataset.vei;
+        currentTask  = tasks[currentTrack][0].value;
+        document.querySelectorAll('.vei-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        renderTasks();
+      });
+    });
+
+    // ─── Velg oppgave ──────────────────────────────────────────────────────
+    function selectTask(value) {
+      currentTask = value;
+      document.querySelectorAll('.task-btn').forEach(b => {
+        b.setAttribute('aria-pressed', b.dataset.task === value ? 'true' : 'false');
+      });
+    }
+
+    // ─── Bygg prompt ───────────────────────────────────────────────────────
+    function buildPrompt() {
+      const task = taskFrames[currentTask];
+      if (!task) return '';
+      const work = document.getElementById('student-work').value.trim();
+      const competenceBlock = task.focus.map(l => `- ${l}`).join('\n');
+
+      return `Du er en tydelig, støttende og faglig sterk lærer i ${task.subject}.
+
+Gi veiledende tilbakemelding på elevens egentreningsarbeid.
+
+Faglig ramme:
+${task.frame}
+
+Elevens arbeid — startrefleksjon, øktplaner, logg og sluttrefleksjon:
+"""
+${work || "Arbeid er ikke limt inn."}
+"""
+
+Vurder arbeidet opp mot disse punktene:
+1. Mål: Er målet tydelig, relevant og mulig å bruke til å styre treningen?
+2. Øktplan: Er øktplanene skrevet før øktene og tydelige på hva, hvordan og hvorfor?
+3. Gjennomføring: Viser teksten at øktene ble gjennomført med fokus og passende tilpasning?
+4. Logg: Er loggen konkret, personlig og nyttig for videre justering?
+5. Refleksjon: Forklarer eleven hvorfor ting gikk som de gikk — ikke bare hva som skjedde?
+6. Neste steg: ${task.next}
+
+Særlig viktig for denne oppgaven:
+${competenceBlock}
+
+Skriv tilbakemeldingen slik:
+- Tre konkrete styrker i arbeidet.
+- Tre konkrete forbedringspunkter med forslag til hva eleven bør gjøre annerledes.
+- Ett tydelig råd til neste periode — basert på hva som faktisk skjedde.
+- En veiledende nivåvurdering til slutt, med presisering om at lærer vurderer samlet kompetanse.
+
+Vær konkret og elevvennlig. Pek på noe i teksten — ikke skriv generelle råd.`;
+    }
+
+    // ─── Generer ───────────────────────────────────────────────────────────
+    document.getElementById('generate-btn').addEventListener('click', () => {
+      document.getElementById('prompt-output').value = buildPrompt();
+    });
+
+    // ─── Kopier ────────────────────────────────────────────────────────────
+    document.getElementById('copy-btn').addEventListener('click', async () => {
+      const out = document.getElementById('prompt-output');
+      if (!out.value) return;
+      try {
+        await navigator.clipboard.writeText(out.value);
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Kopiert ✓';
+        setTimeout(() => { btn.textContent = 'Kopier'; }, 1800);
+      } catch {
+        out.focus(); out.select();
+      }
+    });
+
+    // ─── URL-params (lenker fra oppgavesidene) ─────────────────────────────
+    (function applyUrlParams() {
+      const p = new URLSearchParams(location.search);
+      const vei    = p.get('vei');
+      const oppgave = p.get('oppgave');
+
+      if (vei && tasks[vei]) {
+        currentTrack = vei;
+        document.querySelectorAll('.vei-btn').forEach(b => {
+          b.setAttribute('aria-pressed', b.dataset.vei === vei ? 'true' : 'false');
+        });
+      }
+
+      if (oppgave) {
+        const match = tasks[currentTrack].find(t => t.value === oppgave);
+        if (match) currentTask = match.value;
+      } else {
+        currentTask = tasks[currentTrack][0].value;
+      }
+    })();
+
+    // ─── Init ──────────────────────────────────────────────────────────────
+    renderTasks();
   </script>
-  <script src="scripts/generator.js"></script>
 
 </body>
 </html>
